@@ -7,6 +7,13 @@ public class trigger : MonoBehaviour
 
     public GameObject staticLights;
     public GameObject lightShutoff;
+    public GameObject player;
+    public GameObject cam;
+    public GameObject music;
+    public GameObject musicChase;
+    public Vector3 vector;
+    
+    public GameObject player1;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,16 +21,24 @@ public class trigger : MonoBehaviour
 
         staticLights.SetActive(false);
         lightShutoff.SetActive(true);
+        player.SetActive(false);
+        cam.SetActive(true);
+        music.SetActive(false);
+        musicChase.SetActive(true);
         StartCoroutine(FinishCut());
     }
 
     IEnumerator FinishCut()
     {
-
-        yield return new WaitForSeconds(7);
+        yield return new WaitForSeconds(9);
         this.gameObject.GetComponent<BoxCollider>().enabled = false;
-        staticLights.SetActive(true);
-        lightShutoff.SetActive(false);
+       
+       
+
+        player1.SetActive(true);
+        cam.SetActive(false);
         
+
+
     }
 }
